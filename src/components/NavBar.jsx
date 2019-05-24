@@ -3,24 +3,38 @@ import axios from 'axios';
 import { connect } from "react-redux";
 
 
-class NavBar extends React.Component{
-   async componentDidMount() {
+export class Nav extends React.Component{
+  state = {
+    r:{
+      status:0
+    }
+  };
+
+   handleClick = async () => {
      const r = await API.fetchAll();
-     console.log(r);
-   }
+     this.setState({r});
+   };
+
    render(){
+     const {r} = this.state;
   return(
     <div className="nav">
-      this is a Navbar
+      <button onClick={this.handleClick}>click me</button>
+      {r&&r.status}
     </div>
   );
 }
  }
 
-class API {
+export class API {
   static async fetchAll(){
     const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
     return response;
   }
 }
+
+const NavBar = () => (
+  <Nav />
+);
+
 export default connect()(NavBar);
