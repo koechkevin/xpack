@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from "react-redux";
 
 
- class NavBar extends React.Component{
+class NavBar extends React.Component{
    async componentDidMount() {
      const r = await API.fetchAll();
      console.log(r);
@@ -22,4 +23,4 @@ class API {
     return response;
   }
 }
-export default NavBar;
+export default connect()(NavBar);
