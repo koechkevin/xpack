@@ -1,0 +1,33 @@
+# dependency directory
+node_modules
+
+# compiled directory
+dist
+
+# environment variables
+.env
+
+# vscode directory
+.vscode
+
+#coverage report
+coverage
+.DS_Store
+
+# logs
+npm-debug.log
+logs
+package-lock.json
+yarn-error.log
+
+# Webstorm settings files
+.idea/
+.db
+
+# Generated csv zip file
+Analytics.zip
+
+# Unzipped files
+Average Travel Duration.csv
+Average Travel Lead Time.csv
+Travel Analysis Report.csv
