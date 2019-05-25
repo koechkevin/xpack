@@ -12,7 +12,7 @@ app.use(express.static(DIST));
 app.get('*', (req, res) =>{
   res.sendFile(
     path.resolve(
-      DIST, 'index.jsx.html'
+      DIST, 'index.html'
     )
   )
 });
