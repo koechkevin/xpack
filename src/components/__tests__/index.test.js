@@ -1,12 +1,14 @@
 import enzyme from 'enzyme';
-import configureStore from 'redux-mock-store'
-import App from "../App";
-import React from "react";
-import NavBar, {API, Nav} from "../NavBar";
-import {Provider} from "react-redux";
-const { mount } = enzyme;
+import configureStore from 'redux-mock-store';
+import React from 'react';
+import {Provider} from 'react-redux';
 import moxios from 'moxios';
-import {add} from "../../redux/actions";
+import NavBar, {API, Nav} from '../NavBar';
+import App from '../App';
+import action from '../../redux/actions';
+
+const {add} = action;
+const { mount } = enzyme;
 
 describe('test', () => {
   const initialState = {};
@@ -14,15 +16,15 @@ describe('test', () => {
   const store = mockStore(initialState);
   it('passes', () => {
     const wrapper = mount(<App />);
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('renders nav bar', () => {
     const wrapper = mount(
       <Provider store={store}>
-      <NavBar />
+        <NavBar />
       </Provider>
-      );
+    );
   });
 
   it('passes', () => {
@@ -31,11 +33,11 @@ describe('test', () => {
     );
     const button = wrapper.find('button');
     expect(button.length).toEqual(1);
-    button.simulate('click')
+    button.simulate('click');
   });
 
   it('tests the API', async () => {
-    moxios.stubRequest(`https://jsonplaceholder.typicode.com/todos/1`, {
+    moxios.stubRequest('https://jsonplaceholder.typicode.com/todos/1', {
       status: 200,
       response: {
         message: 'Success',

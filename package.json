@@ -7,7 +7,8 @@
     "start:dev": "webpack -d && webpack-dev-server --open --hot",
     "build": "webpack -p",
     "start": "node server.js",
-    "test": "jest --coverage --colors"
+    "lint": "./node_modules/.bin/eslint",
+    "test": "npm run lint src && jest --coverage --colors"
   },
   "jest": {
     "transform": {
@@ -21,6 +22,7 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "axios": "^0.18.0",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
@@ -29,6 +31,12 @@
     "dotenv": "^8.0.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-cypress": "^2.2.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
     "express": "^4.17.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "history": "^4.9.0",
