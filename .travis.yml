@@ -16,4 +16,3 @@ script:
 
 after_script:
   - COVERALLS_REPO_TOKEN=$repo_token
-  - yarn coveralls
