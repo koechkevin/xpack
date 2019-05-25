@@ -6,6 +6,7 @@ import NavBar, {API, Nav} from "../NavBar";
 import {Provider} from "react-redux";
 const { mount } = enzyme;
 import moxios from 'moxios';
+import {add} from "../../redux/actions";
 
 describe('test', () => {
   const initialState = {};
@@ -43,5 +44,11 @@ describe('test', () => {
     });
     const response = await API.fetchAll();
     expect(response.status).toEqual(200);
+  });
+
+  it('pss', () => {
+    expect(add(5,5)).toEqual(10);
+    expect(add(4,5)).toEqual(5);
+    expect(add(6,5)).toEqual(6);
   });
 });
