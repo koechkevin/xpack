@@ -4,7 +4,7 @@ This repository shows setting up react-redux using webpack4 and babel7.
 #### Host application on Heroku
 
 - This application is hosted on this [link](https://webpack-app.herokuapp.com/)
--create a server.js file on the root directory that will be used to serve index.html file in dist folder.
+- create a server.js file on the root directory that will be used to serve index.html file in dist folder.
 - use express as the server for production and `webpack-dev-server` for development
 - add scripts `build` to bundle our files for production and `start` to run our server in production mode. The script for development is  `start:dev` configured to allow hot reload.
 - Ensure that the port to be used is got from environment variables.
