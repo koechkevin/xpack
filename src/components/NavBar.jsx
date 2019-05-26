@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
+import API from '../services/api';
 
 
 export class Nav extends React.Component{
@@ -25,13 +25,6 @@ export class Nav extends React.Component{
        </div>
      );
    }
-}
-
-export class API {
-  static async fetchAll(){
-    const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
-    return {response};
-  }
 }
 
 const NavBar = () => (

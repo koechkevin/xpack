@@ -3,9 +3,11 @@ import configureStore from 'redux-mock-store';
 import React from 'react';
 import {Provider} from 'react-redux';
 import moxios from 'moxios';
-import NavBar, {API, Nav} from '../NavBar';
+import NavBar, {Nav} from '../NavBar';
 import App from '../App';
 import action from '../../redux/actions';
+import {reducer} from '../../redux/reducers';
+import API from '../../services/api';
 
 const {add} = action;
 const { mount } = enzyme;
@@ -52,5 +54,6 @@ describe('test', () => {
     expect(add(5,5)).toEqual(10);
     expect(add(4,5)).toEqual(5);
     expect(add(6,5)).toEqual(6);
+    reducer({}, {type: 'TYPE'});
   });
 });
