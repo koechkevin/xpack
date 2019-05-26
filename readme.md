@@ -16,7 +16,7 @@ This repository shows setting up react-redux using webpack4 and babel7.
 - add configurations file for jest `jest.config.js` file in the root directory.
 - Add setup tests file in the root directory `test.config.js`.
 - All the tests will reside inside ___tests___ folder nested inside each folder.
-- write tests for all js files inside src folder to set a standard for every developer to  write tests fo any new file added.
+- write tests for all js files inside src folder to set a standard for every developer to  write tests for any new file added.
 
 
 #### Update TravisCI to run tests
