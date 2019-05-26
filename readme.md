@@ -24,7 +24,7 @@ This repository shows setting up react-redux using webpack4 and babel7.
 - A build is successful when all tests have passed.
 - Fetch the test coverage and obtain a badge from code climate
 
-#### Sets up react router-dom
+#### Set up react router-dom
 - update `webpack.config.js` file to allow react-router-dom v4 on development. below is the script that should be enabled.
 ```$xslt
  devServer: {
@@ -42,6 +42,25 @@ This repository shows setting up react-redux using webpack4 and babel7.
 - Ensure all tests are passing on Travis when a .scss file is imported.
 
 #### set up linting for this project
-- add '.eslintrc.json' file.
+- add `.eslintrc.json` file.
 - Use airbnb style guide
 - Modify testing script to ensure the test script checks for linting errors before running the tests.
+
+## Naming conventions
+Naming things is just as important as code itself. Below are the conventions of this project.
+
+ - For components and containers:
+`${NameOfComponent}Component` eg: `UserProfileComponent.jsx`
+`${NameOfContainer}Container` eg: `ArticleListContainer.jsx`
+
+- For reducers:
+`${nameOfReducer}.reducer.js` eg: `likeArticles.reducer.js`
+
+- For actions:
+`${nameOfAction}.action.js` eg: `userProfile.action.js`
+
+- For tests:
+`ArticleListComponent.test.js`
+`UserProfileContainer.test.js`
+`userProfile.action.test.js`
+`article.reducer.test.js`
