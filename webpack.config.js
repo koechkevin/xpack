@@ -1,5 +1,8 @@
 const path = require('path');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const dotenv = require('dotenv');
+
+dotenv.config();
 const DIR = path.join(__dirname, '');
 const SRC = path.resolve(DIR, 'src');
 module.exports = {
@@ -21,9 +24,9 @@ module.exports = {
           loader: 'babel-loader'
         }
       },{
-      test: /\.html$/,
+        test: /\.html$/,
         use: {
-        loader: 'html-loader'
+          loader: 'html-loader'
         }
       },
       {
@@ -41,8 +44,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "index.html"
+      template: './src/index.html',
+      filename: 'index.html'
     })
   ]
 };

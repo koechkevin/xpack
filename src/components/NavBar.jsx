@@ -19,6 +19,7 @@ export class Nav extends React.Component{
      const {r} = this.state;
      return(
        <div className="nav">
+         {/* eslint-disable-next-line react/button-has-type */}
          <button onClick={this.handleClick}>click me</button>
          {r&&r.status}
        </div>
