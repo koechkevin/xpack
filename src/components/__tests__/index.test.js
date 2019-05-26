@@ -35,7 +35,7 @@ describe('test', () => {
     );
     const button = wrapper.find('button');
     expect(button.length).toEqual(1);
-    button.simulate('click');
+    setTimeout(button.simulate('click'), 4000);
   });
 
   it('tests the API', async () => {
