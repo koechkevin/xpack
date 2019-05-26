@@ -11,8 +11,8 @@ export class Nav extends React.Component{
   };
 
    handleClick = async () => {
-     const r = await API.fetchAll();
-     this.setState({r});
+     const { response } = await API.fetchAll();
+     this.setState({r:response});
    };
 
    render(){
@@ -30,7 +30,7 @@ export class Nav extends React.Component{
 export class API {
   static async fetchAll(){
     const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
-    return response;
+    return {response};
   }
 }
 
