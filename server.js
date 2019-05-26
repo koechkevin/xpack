@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv');
+
 dotenv.config();
 const port = process.env.PORT||5000;
 const app = express();
@@ -14,9 +15,10 @@ app.get('*', (req, res) =>{
     path.resolve(
       DIST, 'index.html'
     )
-  )
+  );
 });
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`listening on port ${port}`);
 });
