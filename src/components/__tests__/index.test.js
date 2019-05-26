@@ -44,7 +44,7 @@ describe('test', () => {
         user: ''
       }
     });
-    const response = await API.fetchAll();
+    const {response} = await API.fetchAll();
     expect(response.status).toEqual(200);
   });
 
