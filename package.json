@@ -8,7 +8,8 @@
     "build": "webpack -p",
     "start": "node server.js",
     "lint": "./node_modules/.bin/eslint",
-    "test": "npm run lint src *.js && jest --coverage --colors"
+    "test": "npm run lint src *.js && jest --coverage --colors",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "jest": {
     "transform": {
@@ -26,6 +27,7 @@
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
+    "coverage": "^0.3.3",
     "coveralls": "^3.0.3",
     "css-loader": "^2.1.1",
     "dotenv": "^8.0.0",
