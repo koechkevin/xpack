@@ -1,3 +1,7 @@
 .nav {
   background-color: orange;
+  &:after {
+    content: "kkkkkkkkkk";
+    color: limegreen;
+  }
 }

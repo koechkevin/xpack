@@ -1,51 +1,75 @@
 const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const dotenv = require('dotenv');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DotEnvPlugin = require('dotenv-webpack');
 
-dotenv.config();
-const DIR = path.join(__dirname, '');
-const SRC = path.resolve(DIR, 'src');
 module.exports = {
-  entry: ['@babel/polyfill',SRC + '/index.js'],
+  entry: ['@babel/polyfill', './src/index.js'],
   output: {
-    path: path.resolve(DIR, 'dist'),
-    filename: 'bundle.js'
-  },
-  devServer: {
-    port: process.env.PORT||3000,
-    historyApiFallback: true,
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
-      },{
-        test: /\.html$/,
-        use: {
-          loader: 'html-loader'
-        }
+    rules: [{
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
       },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
-      }
+    },
+    {
+      test: /\.(css|scss)$/,
+      use: [
+        'style-loader', // creates style nodes from JS strings
+        'css-loader', // translates CSS into CommonJS
+        'sass-loader', // compiles Sass to CSS, using Node Sass by default
+      ],
+    },
+    {
+      test: /\.(gif|png|jpe?g|svg)$/i,
+      use: [
+        'file-loader',
+        {
+          loader: 'image-webpack-loader',
+          options: {
+            mozjpeg: {
+              progressive: true,
+              quality: 65,
+            },
+            // optipng.enabled: false will disable optipng
+            optipng: {
+              enabled: false,
+            },
+            pngquant: {
+              quality: '65-90',
+              speed: 4,
+            },
+            gifsicle: {
+              interlaced: false,
+            },
+            // the webp option will enable WEBP
+            webp: {
+              quality: 75,
+            },
+          },
+        },
+      ],
+    },
     ],
   },
-  resolve: {
-    extensions: ['.js', '.jsx']
+  devServer: {
+    port: process.env.PORT || 8080,
+    contentBase: path.join(__dirname, 'src'),
+    https: true,
+    historyApiFallback: true,
   },
   plugins: [
-    new HtmlWebPackPlugin({
+    new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: 'index.html'
-    })
-  ]
+    }),
+    new DotEnvPlugin({ systemvars: true }),
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.scss'],
+  },
 };
