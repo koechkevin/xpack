@@ -1,15 +1,15 @@
 import enzyme from 'enzyme';
 import configureStore from 'redux-mock-store';
 import React from 'react';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import moxios from 'moxios';
-import NavBar, {Nav} from '../NavBar';
+import NavBar, { Nav } from '../NavBar';
 import App from '../App';
 import action from '../../redux/actions';
-import {reducer} from '../../redux/reducers';
+import { reducer } from '../../redux/reducers';
 import API from '../../services/api';
 
-const {add} = action;
+const { add } = action;
 const { mount } = enzyme;
 
 describe('test', () => {
@@ -25,13 +25,13 @@ describe('test', () => {
     const wrapper = mount(
       <Provider store={store}>
         <NavBar />
-      </Provider>
+      </Provider>,
     );
   });
 
   it('passes', () => {
     const wrapper = mount(
-      <Nav />
+      <Nav />,
     );
     const button = wrapper.find('button');
     expect(button.length).toEqual(1);
@@ -43,17 +43,17 @@ describe('test', () => {
       status: 200,
       response: {
         message: 'Success',
-        user: ''
-      }
+        user: '',
+      },
     });
-    const {response} = await API.fetchAll();
+    const { response } = await API.fetchAll();
     expect(response.status).toEqual(200);
   });
 
   it('pss', () => {
-    expect(add(5,5)).toEqual(10);
-    expect(add(4,5)).toEqual(5);
-    expect(add(6,5)).toEqual(6);
-    reducer({}, {type: 'TYPE'});
+    expect(add(5, 5)).toEqual(10);
+    expect(add(4, 5)).toEqual(5);
+    expect(add(6, 5)).toEqual(6);
+    reducer({}, { type: 'TYPE' });
   });
 });
