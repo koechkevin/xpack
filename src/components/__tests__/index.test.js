@@ -29,15 +29,6 @@ describe('test', () => {
     );
   });
 
-  it('passes', () => {
-    const wrapper = mount(
-      <Nav />,
-    );
-    const button = wrapper.find('button');
-    expect(button.length).toEqual(0);
-    setTimeout(button.simulate('click'), 4000);
-  });
-
   it('tests the API', async () => {
     moxios.stubRequest('https://jsonplaceholder.typicode.com/todos/1', {
       status: 200,
