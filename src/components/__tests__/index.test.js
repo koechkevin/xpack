@@ -34,7 +34,7 @@ describe('test', () => {
       <Nav />,
     );
     const button = wrapper.find('button');
-    expect(button.length).toEqual(1);
+    expect(button.length).toEqual(0);
     setTimeout(button.simulate('click'), 4000);
   });
 
