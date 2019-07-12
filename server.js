@@ -2,9 +2,10 @@ const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv');
 
-// Bind heroku port from environment variables or assign the port number 4200 when tested on a different environment.
+// Bind heroku port from environment variables or assign the
+// port number 4200 when tested on a different environment.
 dotenv.config();
-const port = process.env.PORT||4200;
+const port = process.env.PORT || 4200;
 
 // Create an express server.
 const app = express();
